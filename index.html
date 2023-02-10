@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Box Office Hit Movies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="all" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-func.js')}}"></script>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='css/images/rehan_fav.ico')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles2.css')}}" type="text/css" media="all" />
+
+</head>
+<body>
+
+<div id="shell">
+  <div id="header">
+    <h1 id="logo"><a href="/">R_Movies</a></h1>
+    <div class="social"> <span>FOLLOW US ON:</span>
+      <ul>
+        <li><a class="twitter" href="#">twitter</a></li>
+        <li><a class="facebook" href="#">facebook</a></li>
+        <li><a class="github" href="#">github</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul>
+        <li><a class="active" href="/">HOME</a></li>
+        <li><a href="/allmovie">SEE ALL BOX OFFICE HITS</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+
+      </ul>
+    </div>
+    <div id="sub-navigation">
+      <h1 align="center">TOP 20 MOVIES</h1>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+        </div>
+
+    {% for i in range(11) %}
+
+        <div class="movie">
+          <div class="movie-image">
+              <img src="{{(api_data[i]['image'])}}"/>
+           </div>
+        </div>
+
+          <div class="rating">
+            <p>Rank -- {{(api_data[i]['rank'])}}</p><br><br>
+            <p>Rating -- {{(api_data[i]['rating'])}}</p><br><br>
+            <p>Year -- {{(api_data[i]['year'])}}</p><br><br>
+            <p>Genre -- {{(api_data[i]['genre'][0])}}</p><br><br>
+            <p>About -- {{(api_data[i]['description'])}}</p>
+
+            <span class="comments"></span> </div>
+        </div>
+
+      {% endfor %}
+    <div id="news">
+      <div class="head">
+        <h3>NEWS</h3>
+        <p class="text-right"><a href="#">See all</a></p>
+      </div>
+      <div class="content">
+        <p class="date">01.02.23</p>
+        <h4>Lack of new movies to stream in February 2k23</h4>
+        <p>There is no lack of new movies to stream in February on the various major streamers, as blockbusters,
+          dramas and underrated gems from 2022 all land on a combination of Netflix, Disney+, Paramount+,
+          HBO Max, Peacock, Prime Video and Hulu in February. Not only that, but newly added library
+          titles include Oscar winners, ’90s favorites and movies guaranteed to bring a smile to you face.
+          Quite literally whatever mood you’re in, we’ve got a curated pick just for you.</p>
+
+      </div>
+    </div>
+
+      <div id="coming">
+        <div class="head">
+          <h3>COMING SOON<strong>!</strong></h3>
+          <p class="text-right"><a href="#">See all</a></p>
+        </div>
+        <div class="content">
+          <h4>The Princess and the Frog </h4>
+          <a href="#"><img src="css/images/coming-soon1.jpg" alt="" /></a>
+        <p>There is no lack of new movies to stream in February on the various major streamers, as blockbusters,
+          dramas and underrated gems from 2022 all land on a combination of Netflix, Disney+, Paramount+,
+          HBO Max, Peacock, Prime Video and Hulu in February. Not only that, but newly added library
+          titles include Oscar winners, ’90s favorites and movies guaranteed to bring a smile to you face.
+          Quite literally whatever mood you’re in, we’ve got a curated pick just for you.</p>
+      </div>
+    <div class="cl">&nbsp;</div>
+  </div>
+
+    <div id="footer">
+      <p class="lf">Copyright &copy; 2023- All Rights Reserved</p>
+      <p class="rf">Design by <a href="#">Rehan</a></p>
+      <div style="clear:both;"></div>
+    </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
